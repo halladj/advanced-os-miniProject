@@ -23,6 +23,7 @@ You will implement synchronization mechanisms to fix race conditions in a concur
 This starter repository contains:
 
 - `database.go` - Unsynchronized database implementation (UNSAFE!)
+- `database_test.go` - **Test suite to validate your synchronization solution**
 - `client.go` - Test scenarios demonstrating race conditions
 - `main.go` - Entry point to run demonstrations
 - `go.mod` - Go module definition
@@ -97,14 +98,14 @@ Runs all demonstration scenarios and reports results.
 
 ### Requirements
 
-1. **Implement Synchronization** (in a new `solution/` directory):
+1. **Implement Synchronization** (modify `database.go` or create new files):
    - Implement at least 2 synchronization approaches:
      - Mutex-based (required)
      - Monitor pattern, RWLock, or Channel-based
    
 2. **Pass All Tests**:
-   - All provided tests must pass
-   - No race conditions with `go test -race`
+   - Run `go test -race -v` to validate your solution
+   - All tests must pass with zero race conditions
    
 3. **Write Analysis Report** (2-3 pages):
    - Identify 3+ race conditions in this code
@@ -202,23 +203,17 @@ git branch student1-mutex
 git branch student2-rwlock
 ```
 
-## �� Project Structure
+## 📂 Project Structure
 
 ```
-database-sync-project/
-├── unsynchronized/          # This starter code (UNSAFE)
-│   ├── database.go
-│   ├── client.go
-│   ├── main.go
-│   ├── go.mod
-│   ├── problem_statement.pdf
-│   └── README.md           # This file
-│
-└── solution/               # Your code goes here
-    ├── database_mutex.go   # Your implementation
-    ├── database_*.go       # Other approaches
-    ├── *_test.go          # Tests (will be provided)
-    └── go.mod
+unsynchronized/              # This starter code (UNSAFE)
+├── database.go             # Your task: add synchronization here!
+├── database_test.go        # Tests to validate your solution
+├── client.go               # Demo scenarios
+├── main.go                 # Entry point
+├── go.mod
+├── problem_statement.pdf
+└── README.md               # This file
 ```
 
 ## ❓ FAQ
